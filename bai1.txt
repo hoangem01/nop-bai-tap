@@ -1,0 +1,76 @@
+Bai 1:
+class Student {
+    private String mssv;
+    private String name;
+    private double diemCC;
+    private double diemGK;
+    private double diemCK;
+
+    public Student(String mssv, String name, double diemCC, double diemGK, double diemCK) {
+        this.mssv = mssv;
+        this.name = name;
+        setDiemCC(diemCC);
+        setDiemGK(diemGK);
+        setDiemCK(diemCK);
+    }
+
+    public String getMssv() {
+        return mssv;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getDiemCC() {
+        return diemCC;
+    }
+
+    public double getDiemGK() {
+        return diemGK;
+    }
+
+    public double getDiemCK() {
+        return diemCK;
+    }
+
+    public void setDiemCC(double diemCC) {
+        if (diemCC >= 0 && diemCC <= 10) {
+            this.diemCC = diemCC;
+        } else {
+            System.out.println("[Loi] Diem chuyen can cua " + this.mssv + " khong hop le! Bi chan cap nhat.");
+        }
+    }
+
+    public void setDiemGK(double diemGK) {
+        if (diemGK >= 0 && diemGK <= 10) {
+            this.diemGK = diemGK;
+        } else {
+            System.out.println("[Loi] Diem giua ky cua " + this.mssv + " khong hop le (" + diemGK + ")! Bi chan cap nhat.");
+        }
+    }
+
+    public void setDiemCK(double diemCK) {
+        if (diemCK >= 0 && diemCK <= 10) {
+            this.diemCK = diemCK;
+        } else {
+            System.out.println("[Loi] Diem cuoi ky cua " + this.mssv + " khong hop le! Bi chan cap nhat.");
+        }
+    }
+
+    public double diemTrungBinh() {
+        return (this.diemCC * 0.10) + (this.diemGK * 0.30) + (this.diemCK * 0.60);
+    }
+}
+
+public class test {
+    public static void main(String[] args) {
+        Student sv1 = new Student("SV001", "Nguyen Van A", 9.0, 8.5, 8.0);
+        Student sv2 = new Student("SV002", "Tran Thi B", 10.0, 7.0, 9.0);
+        Student sv3 = new Student("SV003", "Le Van C", 8.0, 6.5, 7.5);
+
+        System.out.println(sv1.getMssv() + " | " + sv1.getName() + " | DTB: " + sv1.diemTrungBinh());
+        System.out.println(sv2.getMssv() + " | " + sv2.getName() + " | DTB: " + sv2.diemTrungBinh());
+        System.out.println(sv3.getMssv() + " | " + sv3.getName() + " | DTB: " + sv3.diemTrungBinh());
+    }
+}
